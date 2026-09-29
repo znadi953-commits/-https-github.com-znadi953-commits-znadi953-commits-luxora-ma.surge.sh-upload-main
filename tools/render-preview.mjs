@@ -6,7 +6,7 @@
  *   node tools/render-preview.mjs out.png
  */
 import { createCanvas } from '@napi-rs/canvas';
-import { createDust, drawJmal } from '../lib/jmal-draw.ts';
+import { createDust, drawJmal } from '../components/jmal-draw.ts';
 
 const SIZE = 480;
 const output = process.argv[2] ?? '/tmp/jmal-preview.png';

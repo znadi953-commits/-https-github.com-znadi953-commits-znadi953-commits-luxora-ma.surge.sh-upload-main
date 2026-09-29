@@ -11,9 +11,9 @@ import {
   type GazeReport,
   type GazeVector,
   type ZParticle,
-} from '@/lib/jmal-draw';
+} from './jmal-draw';
 
-export type { GazeReport, GazeVector } from '@/lib/jmal-draw';
+export type { GazeReport, GazeVector } from './jmal-draw';
 
 /* =========================================================================
    1. محرك الحساب الرياضي للشوفان 360° (Gaze Engine)

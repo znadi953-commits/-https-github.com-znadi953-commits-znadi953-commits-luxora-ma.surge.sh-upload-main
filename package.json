@@ -1,25 +1,13 @@
 {
-  "name": "luxora-ma",
+  "name": "luxora-360-character",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
+  "description": "Jmal 360° — Gaze Engine + kass d'atay cursor (React) — outil d'aperçu inclus",
   "scripts": {
-    "dev": "next dev --hostname 0.0.0.0 --port 3000",
-    "build": "next build",
-    "start": "next start --hostname 0.0.0.0 --port 3000",
-    "typecheck": "tsc --noEmit",
     "preview:character": "node tools/render-preview.mjs docs/jmal-preview.png"
   },
-  "dependencies": {
-    "next": "16.3.6",
-    "react": "19.3.0",
-    "react-dom": "19.3.0"
-  },
   "devDependencies": {
-    "@tailwindcss/postcss": "4.3.3",
-    "@types/node": "24.5.2",
-    "@types/react": "19.2.2",
-    "@types/react-dom": "19.2.1",
-    "tailwindcss": "4.3.3",
-    "typescript": "5.9.3"
+    "@napi-rs/canvas": "1.0.9"
   }
 }
