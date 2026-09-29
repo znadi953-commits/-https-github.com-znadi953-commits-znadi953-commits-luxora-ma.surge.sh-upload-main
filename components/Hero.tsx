@@ -574,10 +574,54 @@ export default function Hero() {
             ref={canvasRef}
             role="img"
             aria-label="A sulking 3D monkey character that follows your cursor, blinks, breathes, and reacts when you click"
-            className="h-full w-full object-contain"
+            className={`h-full w-full object-contain transition-opacity duration-300 ${
+              mood !== "idle" && mood !== "watching" ? "opacity-0" : "opacity-100"
+            }`}
             width={CANVAS_SIZE}
             height={CANVAS_SIZE}
           />
+
+          {/* Action images for reactions - original eyes but different poses */}
+          <div className="pointer-events-none absolute inset-0">
+            <img
+              src="/monkey-actions/angry.png"
+              alt=""
+              className={`absolute inset-0 h-full w-full object-contain transition-all duration-300 ${
+                mood === "annoyed" ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-90 rotate-3"
+              }`}
+            />
+            <img
+              src="/monkey-actions/scared.png"
+              alt=""
+              className={`absolute inset-0 h-full w-full object-contain transition-all duration-300 ${
+                mood === "scared" ? "opacity-100 scale-100" : "opacity-0 scale-90"
+              }`}
+            />
+            <img
+              src="/monkey-actions/happy.png"
+              alt=""
+              className={`absolute inset-0 h-full w-full object-contain transition-all duration-300 ${
+                mood === "happy" ? "opacity-100 scale-110" : "opacity-0 scale-90"
+              }`}
+            />
+            <img
+              src="/monkey-actions/dancing.png"
+              alt=""
+              className={`absolute inset-0 h-full w-full object-contain transition-all duration-300 ${
+                mood === "dancing"
+                  ? "opacity-100 scale-110 animate-[dance_0.4s_ease-in-out_infinite]"
+                  : "opacity-0 scale-90"
+              }`}
+            />
+            <img
+              src="/monkey-reference.jpg"
+              alt=""
+              className={`absolute inset-0 h-full w-full object-contain transition-all duration-300 ${
+                mood === "sleepy" ? "opacity-100 scale-95 grayscale-[0.3]" : "opacity-0 scale-90"
+              }`}
+              style={{ filter: mood === "sleepy" ? "brightness(0.8) blur(0.5px)" : "" }}
+            />
+          </div>
 
           {/* Blinking eyelids - overlay */}
           <div
@@ -754,6 +798,10 @@ export default function Hero() {
         @keyframes popIn {
           0% { transform: translateX(-50%) scale(0.8) translateY(10px); opacity: 0; }
           100% { transform: translateX(-50%) scale(1) translateY(0); opacity: 1; }
+        }
+        @keyframes dance {
+          0%, 100% { transform: rotate(-5deg) scale(1.1); }
+          50% { transform: rotate(5deg) scale(1.15); }
         }
         @media (prefers-reduced-motion: reduce) {
           div[class*="animate-"] { animation: none !important; }

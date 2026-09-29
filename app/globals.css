@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ease-lux: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0F0F0F;
+  color: #FAF9F6;
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Focus ring - 2px offset visible */
+*:focus-visible {
+  outline: 2px solid #FFD93D;
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0F0F0F;
+}
+::-webkit-scrollbar-thumb {
+  background: #2A2A2A;
+  border-radius: 4px;
+}
+
+/* Hide cursor only over hero when custom cursor active */
+.hero-cursor-active {
+  cursor: none !important;
+}
+.hero-cursor-active * {
+  cursor: none !important;
+}
+
+/* Entry animation - transform only */
+@keyframes lux-enter {
+  from {
+    transform: translateY(16px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.lux-enter {
+  animation: lux-enter 750ms var(--ease-lux) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lux-enter {
+    animation: none !important;
+    transform: none !important;
+  }
+}
